@@ -14,14 +14,12 @@ class App extends React.Component{
       search: '',
     });
   };
-  getAPI= () => {
+  getAPI = () => {
     axios.get('/api')
       .then((response) => {
         const data = response.data;
         this.setState({ posts: data });
         console.log('Data has been received!!');
-       //this.resetUserInputs();
-
       })
       .catch(() => {
         alert('Error retrieving data!!!');
@@ -51,6 +49,7 @@ class App extends React.Component{
     if (!posts.length) return null;
     
     let api = this.filterjson(this.state.search,posts);
+    console.log(api);
     return (
       <div>
         <p>API : {api.API}</p>
